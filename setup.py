@@ -17,5 +17,11 @@ setuptools.setup(
         "Programming Language :: Python :: 3.6",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: OS Independent",
-    ]
+    ],
+    entry_points={
+        'console_scripts': [
+            'pbench = pbench.cmd.cli:main'
+        ],
+        'pbench.cm': []
+    }
 )
