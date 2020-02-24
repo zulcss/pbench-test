@@ -1,0 +1,17 @@
+language: python
+python:
+  - "3.6"
+env:
+  matrix:
+  - TOXENV=py3
+  - TOXENV=pep8
+  # - TOXENV=integration # requires a remote lxd setup
+
+install:
+  - travis_retry pip install tox
+script:
+  - tox
+  - test -d .tox/$TOXENV/log && cat .tox/$TOXENV/log/*.log || true
+cache:
+  directories:
+    - $HOME/.cache/pip
